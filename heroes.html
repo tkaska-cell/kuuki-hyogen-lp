@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FV 3案比較｜空気を味方につけて話せる表現講座</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f1; --bg-soft:#f3ede2; --ink:#2c2723; --ink-soft:#5d564e;
+    --line:#e4dccd; --accent:#c47f4e; --accent-deep:#a9663a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:2;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+  h1{font-family:"Noto Serif JP",serif;font-weight:600;margin:0;}
+  .btn{display:inline-block;text-decoration:none;font-weight:500;background:var(--accent);color:#fff;padding:17px 42px;border-radius:999px;font-size:16px;box-shadow:0 8px 24px -10px rgba(196,127,78,.7);transition:transform .15s,background .2s;}
+  .btn:hover{background:var(--accent-deep);transform:translateY(-2px);}
+  .btn-note{display:block;margin-top:13px;font-size:13px;}
+  .eyebrow{font-size:13px;letter-spacing:.18em;font-weight:500;}
+
+  /* タグ */
+  .tag{position:absolute;top:20px;left:20px;z-index:5;background:var(--ink);color:#fff;font-size:13px;font-weight:500;padding:6px 16px;border-radius:999px;letter-spacing:.06em;font-family:"Noto Serif JP",serif;}
+  .tag small{font-weight:400;opacity:.8;font-family:"Noto Sans JP",sans-serif;margin-left:6px;}
+  .fv{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;}
+
+  /* ───── 案A：シネマティック全面写真 ───── */
+  .a{background:#211d1a;}
+  .a .bg{position:absolute;inset:0;}
+  .a .bg img{width:100%;height:100%;object-fit:cover;opacity:.55;}
+  .a .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.55),rgba(20,17,15,.35) 40%,rgba(20,17,15,.78));}
+  .a .inner{position:relative;z-index:2;width:100%;max-width:840px;margin:0 auto;padding:0 28px;text-align:center;color:#f6efe4;}
+  .a .eyebrow{color:#f0c89c;margin-bottom:26px;}
+  .a h1{font-size:clamp(38px,8vw,64px);line-height:1.32;color:#fff;}
+  .a .sub{font-size:clamp(17px,2.6vw,21px);font-family:"Noto Serif JP",serif;font-weight:500;margin:24px 0 0;color:#ece2d3;line-height:1.8;}
+  .a .lead{max-width:540px;margin:30px auto 36px;color:#cfc4b4;font-size:15.5px;text-align:left;}
+  .a .btn-note{color:#bdb2a2;}
+
+  /* ───── 案B：分割エディトリアル ───── */
+  .b{background:var(--bg);}
+  .b .grid{display:grid;grid-template-columns:1fr;width:100%;min-height:100svh;}
+  .b .txt{padding:90px 28px;display:flex;flex-direction:column;justify-content:center;max-width:620px;margin:0 auto;}
+  .b .pic{position:relative;min-height:44svh;background:var(--bg-soft);}
+  .b .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .b .pic .frame{position:absolute;inset:0;border:0 solid var(--bg);}
+  .b .eyebrow{color:var(--accent-deep);margin-bottom:22px;}
+  .b h1{font-size:clamp(34px,6vw,52px);line-height:1.36;}
+  .b .sub{font-size:clamp(16px,2.4vw,20px);font-family:"Noto Serif JP",serif;font-weight:500;color:var(--ink-soft);margin:20px 0 0;line-height:1.8;}
+  .b .lead{margin:28px 0 34px;color:var(--ink-soft);font-size:15.5px;}
+  .b .btn-note{color:var(--ink-soft);}
+  .b .badge{display:inline-block;align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 18px;font-size:13px;color:var(--ink-soft);margin-top:22px;font-family:"Noto Serif JP",serif;}
+
+  /* ───── 案C：ミニマル余白＋ボケ背景 ───── */
+  .c{background:var(--bg);}
+  .c .bg{position:absolute;inset:0;}
+  .c .bg img{width:100%;height:100%;object-fit:cover;opacity:.5;}
+  .c .ov{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(250,247,241,.55),rgba(250,247,241,.88));}
+  .c .inner{position:relative;z-index:2;width:100%;max-width:760px;margin:0 auto;padding:80px 28px;text-align:center;}
+  .c .eyebrow{color:var(--accent-deep);margin-bottom:30px;}
+  .c h1{font-size:clamp(36px,7.5vw,60px);line-height:1.34;}
+  .c .sub{display:block;font-size:.62em;margin-top:20px;font-weight:500;color:var(--ink-soft);line-height:1.7;font-family:"Noto Serif JP",serif;}
+  .c .lead{max-width:520px;margin:34px auto 38px;color:var(--ink-soft);font-size:15.5px;text-align:left;}
+  .c .course{display:inline-block;font-family:"Noto Serif JP",serif;font-size:13.5px;letter-spacing:.08em;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:8px 22px;margin-bottom:38px;}
+  .c .btn-note{color:var(--ink-soft);}
+
+  @media(min-width:780px){
+    .b .grid{grid-template-columns:1.05fr .95fr;}
+    .b .pic{min-height:100svh;}
+    .b .txt{padding:90px 56px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ 案A ════════ -->
+<section class="fv a">
+  <span class="tag">案A<small>シネマティック全面写真</small></span>
+  <div class="bg"><img src="assets/fv-stage.jpg" alt=""></div>
+  <div class="ov"></div>
+  <div class="inner">
+    <div class="eyebrow">人前で話すのが、少しラクになる</div>
+    <h1>笑わせなくていい。</h1>
+    <p class="sub">空気を「止めない」だけで、<br>人前はもっと自由になる。</p>
+    <p class="lead">うまく話そうとしているのに、なぜかうまくいかない。話し終えると、どっと疲れている——。それは話し方ではなく、「空気との距離感」の問題かもしれません。</p>
+    <a href="#" class="btn">まずは20分、話してみる</a>
+    <span class="btn-note">いきなり申し込まなくて大丈夫です。LINEから個別相談へ。</span>
+  </div>
+</section>
+
+<!-- ════════ 案B ════════ -->
+<section class="fv b">
+  <span class="tag">案B<small>分割エディトリアル</small></span>
+  <div class="grid">
+    <div class="txt">
+      <div class="eyebrow">人前で話すのが、少しラクになる</div>
+      <h1>笑わせなくていい。<br>空気を、味方に。</h1>
+      <p class="sub">空気を「止めない」だけで、人前はもっと自由になる。</p>
+      <p class="lead">うまく話そうとしているのに、なぜかうまくいかない。話し終えると、どっと疲れている——。それは話し方の問題ではなく、「空気との距離感」がまだつかめていないだけかもしれません。</p>
+      <a href="#" class="btn" style="align-self:flex-start">まずは20分、話してみる</a>
+      <span class="btn-note">いきなり申し込まなくて大丈夫です。LINEから個別相談へ。</span>
+      <span class="badge">空気を味方につけて話せる表現講座 ／ 全4回・少人数制</span>
+    </div>
+    <div class="pic"><img src="assets/fv-room.jpg" alt=""></div>
+  </div>
+</section>
+
+<!-- ════════ 案C ════════ -->
+<section class="fv c">
+  <span class="tag">案C<small>ミニマル余白＋やわらかボケ</small></span>
+  <div class="bg"><img src="assets/fv-bokeh.jpg" alt=""></div>
+  <div class="ov"></div>
+  <div class="inner">
+    <div class="eyebrow">人前で話すのが、少しラクになる</div>
+    <h1>笑わせなくていい。
+      <span class="sub">空気を「止めない」だけで、<br>人前はもっと自由になる。</span>
+    </h1>
+    <p class="lead">うまく話そうとしているのに、なぜかうまくいかない。それは話し方が下手なのではなく、「空気との距離感」がまだつかめていないだけかもしれません。</p>
+    <div class="course">空気を味方につけて話せる表現講座 ／ 全4回・少人数制</div><br>
+    <a href="#" class="btn">まずは20分、話してみる</a>
+    <span class="btn-note">いきなり申し込まなくて大丈夫です。LINEから個別相談へ。</span>
+  </div>
+</section>
+
+</body>
+</html>
