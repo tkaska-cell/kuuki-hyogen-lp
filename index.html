@@ -264,6 +264,49 @@
     .consult .steps{grid-template-columns:1fr 1fr 1fr;}
   }
 
+  /* ── 画像まわり ── */
+  .air-band{
+    width:100%;height:clamp(180px,30vw,300px);overflow:hidden;position:relative;
+    background:var(--bg-soft);
+  }
+  .air-band img{width:100%;height:100%;object-fit:cover;display:block;}
+  .air-band .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:16px 24px;
+    background:linear-gradient(transparent,rgba(44,39,35,.45));
+    color:#fff;font-family:"Noto Serif JP",serif;font-size:clamp(15px,2.6vw,20px);text-align:center;
+    letter-spacing:.06em;
+  }
+  .empathy-img{border-radius:18px;overflow:hidden;margin:34px 0 0;border:1px solid var(--line);}
+  .empathy-img img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;}
+
+  /* 講座の雰囲気 */
+  .scene{margin-top:8px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);}
+  .scene img{width:100%;display:block;}
+  .scene .scene-cap{padding:16px 22px;font-size:14px;color:var(--ink-soft);text-align:center;}
+  .scene .scene-cap b{color:var(--ink);font-weight:500;}
+
+  /* SVG図解 */
+  .figure{margin:34px 0 0;}
+  .figure svg{width:100%;height:auto;display:block;}
+  .figure-cap{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;}
+
+  /* 価格アンカリング */
+  .price-block{text-align:right;}
+  .price-old{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:#c98b6a;font-size:15px;}
+  .price-monitor-label{
+    display:inline-block;background:var(--accent);color:#fff;font-size:11.5px;font-weight:500;
+    padding:3px 11px;border-radius:999px;letter-spacing:.06em;margin-bottom:6px;
+  }
+  .monitor-note{
+    margin-top:26px;border:1px dashed var(--accent);border-radius:14px;padding:18px 22px;
+    background:rgba(196,127,78,.06);font-size:14px;color:var(--ink-soft);line-height:1.85;
+  }
+  .monitor-note b{color:var(--accent-deep);}
+
+  /* about photo を実写に */
+  .about-photo.real{background:none;padding:0;height:auto;aspect-ratio:auto;}
+  .about-photo.real img{width:100%;border-radius:14px;display:block;}
+
   /* やわらかい登場アニメーション */
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1;transform:none;}
@@ -299,6 +342,12 @@
   </div>
 </section>
 
+<!-- ─────────── 空気バンド ─────────── -->
+<div class="air-band reveal">
+  <img src="assets/hero-air.jpg" alt="やわらかい朝の光と、静かな空気">
+  <div class="cap">空気は、敵じゃない。</div>
+</div>
+
 <!-- ─────────── 共感 ─────────── -->
 <section class="section">
   <div class="wrap">
@@ -314,6 +363,9 @@
     <div class="reframe reveal">
       <p>どれかひとつでも当てはまったなら、安心してください。それは<strong>あなたの性格の問題でも、話し方が下手なわけでもありません。</strong></p>
       <p style="margin-bottom:0">空気との距離感さえつかめれば、無理に笑わせようとしなくても、場は自然とほぐれていきます。この講座では、その感覚を4回かけて、ゆっくり丁寧に育てていきます。</p>
+    </div>
+    <div class="empathy-img reveal">
+      <img src="assets/empathy-cup.jpg" alt="温かいお茶を両手で包む、ひと息つく時間">
     </div>
   </div>
 </section>
@@ -362,6 +414,47 @@
         <p>笑いを「ウケさせるもの」ではなく、場の緊張をゆるめるクッションとして使う方法を学びます。</p>
         <p class="quote-ex"><span>たとえば</span>「えーっと、僕の話は雑音か何かだと思って聞いてください」</p>
       </div>
+    </div>
+
+    <div class="figure reveal" role="img" aria-label="図解：気まずい沈黙も、空気を実況するひと言を挟むと、場が自然にゆるむ">
+      <svg viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP',sans-serif">
+        <defs>
+          <marker id="ar" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6 Z" fill="#c47f4e"/>
+          </marker>
+        </defs>
+        <!-- box1 -->
+        <rect x="8" y="48" width="220" height="104" rx="16" fill="#f3ede2" stroke="#e4dccd"/>
+        <text x="118" y="92" text-anchor="middle" font-size="16" fill="#5d564e">反応がない、</text>
+        <text x="118" y="116" text-anchor="middle" font-size="16" fill="#5d564e">気まずい沈黙…</text>
+        <!-- arrow -->
+        <line x1="236" y1="100" x2="296" y2="100" stroke="#c47f4e" stroke-width="2.5" marker-end="url(#ar)"/>
+        <!-- box2 (accent) -->
+        <rect x="300" y="34" width="220" height="132" rx="16" fill="#2c2723"/>
+        <text x="410" y="78" text-anchor="middle" font-size="13" fill="#f0c89c" letter-spacing="2">この講座のひと言</text>
+        <text x="410" y="108" text-anchor="middle" font-size="16.5" fill="#fff">「この空気、どう</text>
+        <text x="410" y="132" text-anchor="middle" font-size="16.5" fill="#fff">すればいいですか？笑」</text>
+        <!-- arrow -->
+        <line x1="528" y1="100" x2="588" y2="100" stroke="#c47f4e" stroke-width="2.5" marker-end="url(#ar)"/>
+        <!-- box3 -->
+        <rect x="592" y="48" width="220" height="104" rx="16" fill="#fff" stroke="#c47f4e" stroke-width="1.5"/>
+        <text x="702" y="92" text-anchor="middle" font-size="16" fill="#a9663a">場が、自然に</text>
+        <text x="702" y="116" text-anchor="middle" font-size="16" fill="#a9663a">ゆるむ。</text>
+      </svg>
+      <p class="figure-cap">無理に笑わせるのではなく、空気をそのまま言葉にするだけ。それだけで、場の緊張はほどけていきます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 講座の雰囲気 ─────────── -->
+<section class="section">
+  <div class="wrap">
+    <div class="lead-label reveal center">ATMOSPHERE</div>
+    <h2 class="center reveal">実際の講座は、<br>こんな雰囲気です。</h2>
+    <p class="center reveal" style="color:var(--ink-soft)">少人数・オンライン。気負わず、雑談みたいに進みます。</p>
+    <div class="scene reveal">
+      <img src="assets/session.jpg" alt="オンラインで行われる、和やかな少人数の表現講座のようす">
+      <div class="scene-cap"><b>講師・前野太志（右）と受講生のセッション風景。</b>「うまく話す」ためではなく、肩の力を抜くための時間です。</div>
     </div>
   </div>
 </section>
@@ -525,8 +618,19 @@
       <div class="offer-row"><dt>時間</dt><dd>1回 90分（計6時間）</dd></div>
       <div class="offer-row"><dt>形式</dt><dd>少人数制（最大5名）／オンライン</dd></div>
       <div class="offer-row"><dt>使用ツール</dt><dd>基本はZoom</dd></div>
-      <div class="offer-row"><dt>価格</dt><dd><span class="big">50,000円</span> <span style="font-size:13px;color:var(--ink-soft)">（税込）</span></dd></div>
+      <div class="offer-row">
+        <dt>価格</dt>
+        <dd class="price-block">
+          <span class="price-monitor-label">期間限定モニター価格</span><br>
+          <span class="price-old">通常 98,000円</span><br>
+          <span class="big">50,000円</span> <span style="font-size:13px;color:var(--ink-soft)">（税込）</span>
+        </dd>
+      </div>
     </dl>
+    <div class="monitor-note reveal">
+      <b>いま、モニター受講生を募集しています。</b><br>
+      講座をより良いものにしていくため、受講後に簡単な感想のご協力をお願いするかわりに、通常 98,000円のところを <b>50,000円（税込）</b> でご案内しています。募集枠が埋まり次第、通常価格に戻ります。
+    </div>
     <div class="offer-msg reveal">
       <p>これは、話し方を教える講座ではありません。<strong>人前での「自分との付き合い方」が変わる講座</strong>です。</p>
       <p>場が凍るたびに感じてきた、あの焦り。それが、笑いのひと言ひとつでほぐせるようになる。その変化は、4回が終わったあとも、ずっとあなたの中に残ります。</p>
@@ -557,7 +661,7 @@
     <div class="lead-label reveal">ABOUT</div>
     <h2 class="reveal">この講座をつくった人</h2>
     <div class="about-card reveal">
-      <div class="about-photo">［ ひろしさんの写真をここに ］<br>※4:3推奨</div>
+      <div class="about-photo real"><img src="assets/hiroshi-about.jpg" alt="講師・前野太志（まえのひろし）"></div>
       <div class="about-name">前野 太志<span class="yomi">まえの ひろし</span></div>
       <div class="about-titles">元お笑い芸人 ／ 上級心理カウンセラー ／ レイキティーチャー ／ 笑顔ナビゲーター</div>
       <p>元お笑い芸人として活動し、その後はYouTuberとして、人前やカメラの前で話す仕事を長く続けてきました。今もMC・司会として、さまざまな現場で“その場の空気”をつくっています。</p>
